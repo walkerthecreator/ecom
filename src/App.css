@@ -1,0 +1,51 @@
+h1{
+    font-family: 'poppins';
+    font-weight: 700;
+}
+
+.card{
+    width: 18rem;
+    border: 2px solid rgb(233, 233, 233);
+    padding: 10px;
+    border-radius: 8px;   
+    display: flex ;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-price{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#price{
+    color: green;
+}
+
+.card h1{
+    font-size: 1.4rem;
+}
+
+.card img{
+    width: 90%;
+    height: 12rem;
+    margin: 10px auto;
+    object-fit: contain;
+}
+
+.card-group{
+    display: flex;
+    width: 80vw;
+    margin: 5vh auto;
+    flex-wrap: wrap;
+    gap: 20px 30px ;
+}
+
+.card button{
+    background-color: black;
+    padding: 4px;
+    border-radius: 8px;
+    font-weight: 600 ;
+    color: white;
+}
