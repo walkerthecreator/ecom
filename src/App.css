@@ -3,6 +3,10 @@ h1{
     font-weight: 700;
 }
 
+body{
+    margin: 0;
+}
+
 .card{
     width: 18rem;
     border: 2px solid rgb(233, 233, 233);
@@ -48,4 +52,98 @@ h1{
     border-radius: 8px;
     font-weight: 600 ;
     color: white;
+}
+
+/* navbar  */
+
+nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: linear-gradient(to bottom , #0F172A , #334155);
+    color: white;
+}
+
+nav h2{
+    margin: 0;
+}
+
+nav ul{
+    display: flex;
+    list-style-type: none ;
+    width: 50%;
+    justify-content: space-around;
+}
+
+nav ul li:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
+/* loading component  */
+
+.loading-card{
+    height: 500px ;
+    width: 18rem;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border :2px solid rgb(233, 233, 233);
+    justify-content: space-between;
+    border-radius: 8px;
+    align-items: center;
+    animation: loading 0.4s linear none infinite alternate;
+}
+
+.loading-img{
+    width: 100%;
+    border-radius: 8px;
+    height: 13rem;
+    background-color: rgb(218, 218, 218);
+}
+
+.loading-name , .loading-card p , .loading-card button{
+    height: 30px;
+    width: 100%;
+    background: #dbdbdb;
+    border-radius: 6px;
+}
+
+
+.loading-card button{
+    background-color: #aeaeae;
+    border: none;
+}
+
+@keyframes loading {
+    from {
+        opacity: 1;
+    }
+    to{
+        opacity: 0.4;
+    }
+}
+
+
+/* card header  */
+
+.card-header{
+    width: 80%;
+    margin: 5vh auto;
+}
+
+.card-header button{
+    padding: 10px 38px;
+    border: 2px solid #e3e3e3 ;
+    background-color: transparent;
+    border-radius: 22px;
+    margin-left: 10px;
+    color: #aeaeae;
+    cursor: pointer;
+}
+
+.card-header button:hover{
+    border: 2px solid #aeaeae;
+    color: black;
 }
