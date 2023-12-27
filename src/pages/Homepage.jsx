@@ -23,28 +23,29 @@ function Homepage(){
 
 
     function handleSort(){
-        let sortedArr = displayData.sort((a , b)=>{
+        let sortedArr = displayData
+        sortedArr.sort((a , b)=>{
             return b.price - a.price
         })
         
-        console.log(sortedArr)
-
-        // setDataSet(sortedArr)
+        setDisplayData(sortedArr)
+        setShowSort(false)
     }
 
     function handleSortAsc(){
-        let sortedArr = displayData.sort((a , b)=>{
+        let sortedArr = displayData
+        sortedArr = sortedArr.sort((a , b)=>{
             return a.price - b.price
         })
-        // setDataSet(sortedArr)
+
+        setDisplayData(sortedArr)
+        setShowSort(false)
     }
 
     function filterData(filtering){
-
         const updatedData = dataset.filter((item , index) =>{
             return item.category == filtering
         })
-
         setDisplayData(updatedData)
     }
 
@@ -52,7 +53,9 @@ function Homepage(){
         fetchData()
     } , [])
 
-    console.log('render dataset' , dataset)
+
+
+    // console.log('render dataset' , dataset)
 
 
 
