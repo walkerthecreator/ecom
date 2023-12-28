@@ -1,49 +1,60 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import '../styles/login.module.css'
+import Store from "../context/store";
 
 const Login = () => {
 
     const navigate = useNavigate()
-    const [user, setUser] = useState({ email: "", password: "" });
+
+    const { setUser } = useContext(Store)
+
+    const [formData, setformData] = useState({ email: "", password: "" });
 
     function handleSubmit(e){
         e.preventDefault()  // prevent reloading the page
-        localStorage.setItem("user" , JSON.stringify({ email : user.email , id  : Math.floor(Math.random() * 100) }) )
+        localStorage.setItem("user" , JSON.stringify({ email : formData.email , id  : Math.floor(Math.random() * 100) }) )
+        setUser(formData) //  user data in store
         navigate('/')
         
     }
 
     useEffect(()=>{
         
-        let userData = localStorage.getItem('user')
-        userData = JSON.parse(userData)
+        let formDataData = localStorage.getItem('formData')
+        formDataData = JSON.parse(formDataData)
 
-        if(userData?.email){
-            navigate('/') // this will be navigated if user already exsisit
+        if(formDataData?.email){
+            navigate('/') // this will be navigated if formData already exsisit
         }
     } , [])
 
   return (
+<>
     <form onSubmit={ handleSubmit }>
+        <h1>Login</h1>
       <input
         type="email"
         placeholder="Enter email"
         onChange={(e) => {
-          setUser({ ...user ,  email: e.target.value  });
+            setformData({ ...formData ,  email: e.target.value  });
         }}
-      />
+        />
 
       <input
         type="password"
         placeholder="Enter Password"
         onChange={(e) => {
-          setUser({ ...user ,  password: e.target.value });
+            setformData({ ...formData ,  password: e.target.value });
         }}
-      />
+        />
 
       <button>login</button>
     </form>
+        </>
   );
 };
 
 export default Login;
+
+
