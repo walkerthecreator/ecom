@@ -19,15 +19,15 @@ function NavBar(){
         <h2><Link to='/'>Mystore</Link></h2>
         <ul>
             <li>Shop</li>
-            <li> <Link to='/cart'>Cart {cart.length}</Link></li>
+            <li> <Link to='/cart'>Cart <span id="cart-count" >{cart.length}</span></Link></li>
             {
                 ( user == null ) ? 
                 <li><Link to='/login'>login</Link></li>
                 :
                 <>
-                <div style={{ display : "flex " , gap : '10px' }}>
+                <div style={{ display : "flex " , gap : '10px' , alignItems : "center" }}>
                     <li>{ user.email }</li>
-                    <button onClick={ handleSignOut }> logout </button>
+                    <button id="logout" onClick={ handleSignOut }> logout </button>
                 </div>
                 </>
             }

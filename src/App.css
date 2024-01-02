@@ -87,6 +87,22 @@ nav ul li:hover{
     cursor: pointer;
 }
 
+#cart-count{
+    background-color: indianred;
+    padding: 4px 10px ;
+    border-radius: 8px ;
+    margin-left: 4px;
+}
+
+#logout{
+    border: 2px solid rgb(163, 74, 74);
+    padding: 4px 16px ;
+    background-color: transparent;
+    color: indianred;
+    border-radius: 12px ;
+}
+
+
 
 /* loading component  */
 
