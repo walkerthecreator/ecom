@@ -40,8 +40,9 @@ body{
 
 .card-group{
     display: flex;
-    width: 80vw;
-    margin: 5vh auto;
+    justify-content: center;
+    width: 80vw ;
+    margin: 5vh auto ;
     flex-wrap: wrap;
     gap: 20px 30px ;
 }
@@ -153,3 +154,4 @@ nav ul li:hover{
     border: 2px solid #aeaeae;
     color: black;
 }
+

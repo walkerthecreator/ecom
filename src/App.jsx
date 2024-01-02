@@ -3,19 +3,9 @@ import './App.css'
 import Homepage from './pages/Homepage'
 import NavBar from './components/NavBar'
 import Login from './components/Login'
-import { useContext, useEffect } from 'react'
-import Store from './context/store'
+import Cart from './pages/Cart'
 
 function App() {
-
-    const {setUser} = useContext(Store)
-
-    useEffect(()=>{
-        const data = localStorage.getItem("user")
-        if(data) setUser(JSON.parse(data))
-        
-    } , [])
-
 
   return (
     <>
@@ -23,6 +13,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Homepage/>}></Route>
         <Route path='/login' element={ <Login/> }></Route>
+        <Route path='/cart' element={ <Cart/> }></Route>
         {/* <Route path='/login' element={<Homepage/>}></Route>
         <Route path='/signup' element={<Homepage/>}></Route> */}
       </Routes>

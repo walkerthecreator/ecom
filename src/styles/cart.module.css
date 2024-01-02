@@ -1,0 +1,39 @@
+.cartDiv{
+    width: 80vw;
+    margin: 10px auto;
+    background-color: white;
+    border: 2px solid gray;
+    padding: 14px 28px ;
+    border-radius: 12px ;
+    display: flex;
+    gap: 20px;
+    justify-content: space-around;
+}
+
+.cartDiv img{
+    max-width: 20vw;
+    max-height: 70%;
+    height: 400px;
+    object-fit: contain;
+}
+
+.cartDiv div{
+    width: 40%;
+}
+
+.cartDiv p{
+    background-color: #f2f2f2 ;
+    width: fit-content;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+.cartDiv button{
+    padding: 8px ;
+    background-color: #F43F5E;
+    color: #fed4db;
+    width: 150px;
+    border-radius: 12px;
+    border: 2px solid #E11D48;
+}

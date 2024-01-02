@@ -43,7 +43,7 @@ function Homepage(){
     }
 
     function filterData(filtering){
-        const updatedData = dataset.filter((item , index) =>{
+        const updatedData = dataset.filter((item) =>{
             return item.category == filtering
         })
         setDisplayData(updatedData)

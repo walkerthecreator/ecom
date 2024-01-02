@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import '../styles/login.module.css'
+import styles from '../styles/login.module.css'
 import Store from "../context/store";
 
 const Login = () => {
@@ -31,7 +31,7 @@ const Login = () => {
 
   return (
 <>
-    <form onSubmit={ handleSubmit }>
+    <form className={styles.form} onSubmit={ handleSubmit }>
         <h1>Login</h1>
       <input
         type="email"

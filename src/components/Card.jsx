@@ -1,7 +1,11 @@
+import { useContext } from "react";
 import truncate from "../utils/truncate";
 import Star from "./Star";
+import Store from "../context/store";
 
-function Card({ title , price , description , image  , rating , id }){
+function Card({ title , price, category , description , image  , rating , id }){
+
+    const { cart , setCart } = useContext(Store)
 
     return <div className="card">
         <img src={image} alt="" />
@@ -14,7 +18,7 @@ function Card({ title , price , description , image  , rating , id }){
 
                 { rating.rate } ({ rating.count })</p>
             </div>
-            <button>Add to cart</button>
+            <button onClick={ ()=>{ setCart([...cart , { title, category  , price , description , image , rating , id} ])  } }>Add to cart</button>
     </div>
 }
 
