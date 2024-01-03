@@ -1,18 +1,40 @@
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import Store from "../context/store"
 import CartProduct from "../components/CartProduct"
 
 const Cart = () => {
 
-    const { cart , setCart } = useContext(Store)
+    const { cart , setCart , total } = useContext(Store)
+
+    // create a function which will increase and decrease the value of count in object of cart array
+
+
 
     function removeItem(id){
         // some logic for deleting item from an array
-        
+
+        const updatedCart = cart.filter((item ) => {
+            return item.id != id
+        })
+
+        setCart(updatedCart)
     }
+
+    console.log(cart)
 
   return (
     <div className="cart-wrapper">
+
+        <div>
+            <h1>Billing</h1>
+
+            <h2>your total is {total}</h2>
+
+        </div>
+
+
+
+
         <h1>Cart</h1>
 
         
@@ -24,22 +46,14 @@ const Cart = () => {
             :
             cart.map((item ) => {
                 return <CartProduct {...item} removeItem={ removeItem }/>
-                // return <div className={styles.cartDiv} key={item.id}>
-                //     <img src={item.image} alt="" />
-                    
-                //     <div>
-                //         <h1>{item.title}</h1>
-                //         <Star rating={4}></Star>
-                //         <p>{item.category}</p>
-                //         <h2>${item.price}</h2>
-                //         <button>remove</button>
-                //     </div>
-                // </div>
+
             })
         }
 
     </div>
   )
 }
+
+
 
 export default Cart

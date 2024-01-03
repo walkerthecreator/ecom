@@ -18,7 +18,7 @@ function Card({ title , price, category , description , image  , rating , id }){
 
                 { rating.rate } ({ rating.count })</p>
             </div>
-            <button onClick={ ()=>{ setCart([...cart , { title, category  , price , description , image , rating , id} ])  } }>Add to cart</button>
+            <button onClick={ ()=>{ setCart([...cart , { title, category  , price , description , image , rating , id , count : 1} ])  } }>Add to cart</button>
     </div>
 }
 
