@@ -22,7 +22,6 @@ export const Provider = ({ children }) => {
 
     useEffect(()=>{
         getTotal()
-        console.log(total)
 
     } , [cart])
 

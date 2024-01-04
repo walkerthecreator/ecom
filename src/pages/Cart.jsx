@@ -8,10 +8,21 @@ const Cart = () => {
 
     // create a function which will increase and decrease the value of count in object of cart array
 
+    function inc(id){
+
+        const updatedArr = cart.map((item , index)=>{
+            if(item.id == id){
+                item.count++
+            }
+            return item
+        })
+
+        setCart(updatedArr)
+    }
+
 
 
     function removeItem(id){
-        // some logic for deleting item from an array
 
         const updatedCart = cart.filter((item ) => {
             return item.id != id
@@ -27,25 +38,17 @@ const Cart = () => {
 
         <div>
             <h1>Billing</h1>
-
             <h2>your total is {total}</h2>
-
+            {/* complete billing component with title and total price  */}
         </div>
-
-
-
-
         <h1>Cart</h1>
-
-        
-
 
         {
             ( cart.length == 0  ) ?
             "Cart is empty"
             :
             cart.map((item ) => {
-                return <CartProduct {...item} removeItem={ removeItem }/>
+                return <CartProduct {...item} removeItem={ removeItem } inc={inc} />
 
             })
         }

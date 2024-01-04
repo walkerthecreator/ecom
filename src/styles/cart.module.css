@@ -29,11 +29,30 @@
     font-weight: 500;
 }
 
-.cartDiv button{
+.cartDiv   button{
     padding: 8px ;
     background-color: #F43F5E;
     color: #fed4db;
     width: 150px;
     border-radius: 12px;
     border: 2px solid #E11D48;
+}
+
+.wrapper{
+    min-width: 80px;
+    display: flex;
+    margin-top: 20px;
+    border: 2px solid #a8a8a8;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.wrapper button{
+    width: 60px;
+    background-color: transparent;
+    padding: 8px;
+    border: none;
+    color: black;
+    font-weight: 700;
+    font-size: 18px;
 }
