@@ -9,9 +9,8 @@ export const Provider = ({ children }) => {
     const [ total , setTotal ] = useState(0) 
 
     function getTotal(){
-        setTotal(0)
         cart.map((item) => {
-            setTotal(total + item.price)
+            setTotal( prev => ( prev + ( item.price * item.count)))
         })
     }
 
@@ -21,6 +20,7 @@ export const Provider = ({ children }) => {
     } , [])
 
     useEffect(()=>{
+        setTotal(prev => 0)
         getTotal()
 
     } , [cart])

@@ -56,3 +56,32 @@
     font-weight: 700;
     font-size: 18px;
 }
+
+.billing{
+  width: 400px ;
+  padding: 10px 28px ;
+  background-color: #FFFFEC;
+  border: 2px solid #F1E4C3;
+
+}
+
+.billing_card{
+    border-top : 2px solid #F1E4C3;
+}
+
+.billing_card h1{
+    font-size: 20px;
+}
+.billing_card p{
+    margin-left: 50%;
+    font-weight: 700 ;
+    text-align: right;
+}
+
+.billing > h1{
+    text-align: center;
+}
+
+.billing span{
+    color: #22C55E;
+}

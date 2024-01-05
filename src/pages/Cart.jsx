@@ -1,12 +1,12 @@
 import { useContext, useState } from "react"
 import Store from "../context/store"
 import CartProduct from "../components/CartProduct"
+import styles from "../styles/cart.module.css"
 
 const Cart = () => {
 
     const { cart , setCart , total } = useContext(Store)
 
-    // create a function which will increase and decrease the value of count in object of cart array
 
     function inc(id){
 
@@ -14,6 +14,17 @@ const Cart = () => {
             if(item.id == id){
                 item.count++
             }
+            return item
+        })
+
+        setCart(updatedArr)
+    }
+
+    function dec(id){
+
+        const updatedArr = cart.map((item , index)=>{
+            if(item.id == id && item.count > 1) item.count--
+            
             return item
         })
 
@@ -36,10 +47,18 @@ const Cart = () => {
   return (
     <div className="cart-wrapper">
 
-        <div>
+        <div className={styles.billing}>
             <h1>Billing</h1>
-            <h2>your total is {total}</h2>
-            {/* complete billing component with title and total price  */}
+            {
+                cart?.map((item )=>{
+                    return <div className={styles.billing_card}>
+                            <h1>{item?.title}</h1>
+                            <p> { item?.count } x ${item.price} = ${ item?.price * item?.count }  </p>
+                    </div>
+                })
+
+            }
+            <h1>Subtotal <span>${total}</span></h1>
         </div>
         <h1>Cart</h1>
 
@@ -48,7 +67,7 @@ const Cart = () => {
             "Cart is empty"
             :
             cart.map((item ) => {
-                return <CartProduct {...item} removeItem={ removeItem } inc={inc} />
+                return <CartProduct {...item} removeItem={ removeItem } inc={inc} dec={dec}/>
 
             })
         }

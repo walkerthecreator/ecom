@@ -4,7 +4,7 @@ import { useState } from "react"
 import { RiDeleteBinLine } from "react-icons/ri"
 
 
-const SingleProduct = ({ id,  image , title , price , category , rating , removeItem , count , inc}) => {
+const SingleProduct = ({ id,  image , title , price , category , rating , removeItem , count , inc , dec}) => {
 
   
 
@@ -22,7 +22,7 @@ const SingleProduct = ({ id,  image , title , price , category , rating , remove
                         <button onClick={ ()=>{ removeItem(id) } }> <RiDeleteBinLine/> remove</button>
 
                     <div className={styles.wrapper}>
-                        <button  >-</button>
+                        <button onClick={ ()=>{ dec(id) } } >-</button>
                         <span>{ count }</span>
                         <button onClick={ ()=>{ inc(id) } }>+</button>
                     </div>
