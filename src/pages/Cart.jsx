@@ -45,34 +45,41 @@ const Cart = () => {
     console.log(cart)
 
   return (
-    <div className="cart-wrapper">
+    <>
+        <main>
 
-        <div className={styles.billing}>
-            <h1>Billing</h1>
+        <div className={styles.cart_wrapper}>
+
             {
-                cart?.map((item )=>{
-                    return <div className={styles.billing_card}>
-                            <h1>{item?.title}</h1>
-                            <p> { item?.count } x ${item.price} = ${ item?.price * item?.count }  </p>
-                    </div>
+                ( cart.length == 0  ) ?
+                "Cart is empty"
+                :
+                cart.map((item ) => {
+                    return <CartProduct {...item} removeItem={ removeItem } inc={inc} dec={dec}/>
+                    
                 })
-
             }
-            <h1>Subtotal <span>${total}</span></h1>
+
         </div>
-        <h1>Cart</h1>
+        <div className={styles.billing_wrapper}>
 
-        {
-            ( cart.length == 0  ) ?
-            "Cart is empty"
-            :
-            cart.map((item ) => {
-                return <CartProduct {...item} removeItem={ removeItem } inc={inc} dec={dec}/>
+            <div className={styles.billing}>
+                <h1>Billing</h1>
+                {
+                    cart?.map((item )=>{
+                        return <div className={styles.billing_card}>
+                                <h1>{item?.title}</h1>
+                                <p> { item?.count } x ${item.price} = ${ item?.price * item?.count }  </p>
+                        </div>
+                    })
 
-            })
-        }
+                }
+                <h1>Subtotal <span>${total}</span></h1>
+            </div>
 
-    </div>
+        </div>
+        </main>
+    </>
   )
 }
 

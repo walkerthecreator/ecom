@@ -1,17 +1,43 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { API } from "../utils/constant"
 import Card from "../components/Card"
 import Loading from "../components/Loading"
 import { FaArrowUp , FaArrowDown } from "react-icons/fa6";
+import Store from "../context/store";
 
 function Homepage(){
 
     const [ dataset , setDataSet ] = useState(null) //initial data do not make chnages here
-
     const [ displayData , setDisplayData] = useState([]) // this is just for displaying
-
     const [ showSort , setShowSort ] = useState(false)
     const [ showFilter , setShowFilter ] = useState(false)
+
+    const { cart, setCart} = useContext(Store)
+
+
+    function handleAddToCart({ title ,  id , price, category , description , image , rating  }){
+
+        // checking whther the item exist in cart array 
+        const checkItem = cart.find( (item) => {
+            return item.id == id
+        } )
+
+        if(checkItem){
+            // updates the count of item
+            const updatedArray = cart.map((item ) => {
+                        if(item.id == id) {
+                             item.count++ 
+                         }
+                         return item
+                    })
+            setCart(updatedArray)
+        }
+        else{
+            // create a new item in cart arr
+            setCart([...cart , { title, category  , price , description , image , rating , id , count : 1} ])
+        }
+
+    }
 
     // making an api call
     async function fetchData(){
@@ -54,11 +80,6 @@ function Homepage(){
     } , [])
 
 
-
-    // console.log('render dataset' , dataset)
-
-
-
     return (
         <>
 
@@ -88,7 +109,7 @@ function Homepage(){
                     (dataset != null) 
                     ? 
                     displayData?.map((item , index)=>{
-                        return <Card key={index}  {...item}  />
+                        return <Card key={index}  {...item} handleAddToCart={handleAddToCart} />
                     }) 
                     :
                     <>

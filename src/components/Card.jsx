@@ -3,9 +3,13 @@ import truncate from "../utils/truncate";
 import Star from "./Star";
 import Store from "../context/store";
 
-function Card({ title , price, category , description , image  , rating , id }){
+function Card({ title , price, category , description , image  , rating , id , handleAddToCart }){
 
-    const { cart , setCart } = useContext(Store)
+    // function handleClick(){
+    //     setCart([...cart , { title, category  , price , description , image , rating , id , count : 1} ])
+    // }
+
+    // const { cart , setCart } = useContext(Store)
 
     return <div className="card">
         <img src={image} alt="" />
@@ -18,7 +22,7 @@ function Card({ title , price, category , description , image  , rating , id }){
 
                 { rating.rate } ({ rating.count })</p>
             </div>
-            <button onClick={ ()=>{ setCart([...cart , { title, category  , price , description , image , rating , id , count : 1} ])  } }>Add to cart</button>
+            <button onClick={ ()=> { handleAddToCart({title, price, category, description, image , rating , id}) } }>Add to cart</button>
     </div>
 }
 
