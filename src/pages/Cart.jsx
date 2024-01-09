@@ -74,7 +74,7 @@ const Cart = () => {
                     })
 
                 }
-                <h1>Subtotal <span>${total}</span></h1>
+                <h1>Subtotal <span>${total.toFixed(2)}</span></h1>
             </div>
 
         </div>

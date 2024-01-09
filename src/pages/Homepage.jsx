@@ -4,6 +4,7 @@ import Card from "../components/Card"
 import Loading from "../components/Loading"
 import { FaArrowUp , FaArrowDown } from "react-icons/fa6";
 import Store from "../context/store";
+import { useNavigate } from "react-router-dom";
 
 function Homepage(){
 
@@ -11,6 +12,7 @@ function Homepage(){
     const [ displayData , setDisplayData] = useState([]) // this is just for displaying
     const [ showSort , setShowSort ] = useState(false)
     const [ showFilter , setShowFilter ] = useState(false)
+    const navigate = useNavigate()
 
     const { cart, setCart} = useContext(Store)
 
@@ -75,6 +77,8 @@ function Homepage(){
         setDisplayData(updatedData)
     }
 
+
+
     useEffect(()=>{
         fetchData()
     } , [])
@@ -109,7 +113,7 @@ function Homepage(){
                     (dataset != null) 
                     ? 
                     displayData?.map((item , index)=>{
-                        return <Card key={index}  {...item} handleAddToCart={handleAddToCart} />
+                        return <Card onClick={ ()=>{ navigate(`/product/${item.id}`) } } key={index}  {...item} handleAddToCart={handleAddToCart} />
                     }) 
                     :
                     <>
