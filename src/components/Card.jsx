@@ -7,10 +7,10 @@ function Card({ onClick ,  title , price, category , description , image  , rati
 
     
 
-    return <div className="card" onClick={onClick}>
-        <img src={image} alt="" />
-            <h1>{ truncate(title , 22) }</h1>
-            <div className="card-price">
+    return <div className="card" >
+        <img src={image} alt="" onClick={onClick}/>
+            <h1 onClick={onClick}>{ truncate(title , 22) }</h1>
+            <div className="card-price" onClick={onClick}>
 
             <span id="price">$ { price }</span>
             <p>
