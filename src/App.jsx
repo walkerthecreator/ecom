@@ -6,6 +6,7 @@ import Login from './components/Login'
 import Cart from './pages/Cart'
 import Product from './pages/Product'
 import Landing from './pages/Landing'
+import Products from './pages/ProductByCategory'
 
 function App() {
 
@@ -17,7 +18,8 @@ function App() {
         <Route path='/home' element={<Landing/>}></Route>
         <Route path='/login' element={ <Login/> }></Route>
         <Route path='/cart' element={ <Cart/> }></Route>
-        <Route path='/product/:id' element={ <Product/> }></Route>
+        <Route path='/product/category/:category' element={ <Products /> }></Route>
+        <Route path='/product/:id' index element={ <Product/> }></Route>
       </Routes>
     </>
   )

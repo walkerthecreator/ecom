@@ -18,9 +18,9 @@ function NavBar(){
 
 
     return <nav>
-        <h2><Link to='/'>Mystore</Link></h2>
+        <h2><Link to='/home'>Shopkart</Link></h2>
         <ul>
-            <li>Shop</li>
+            <li> <Link to='/'>Shop</Link></li>
             <li> <Link to='/cart'> <FaShoppingCart  /> Cart <span id="cart-count" >{cart.length}</span></Link></li>
             {
                 ( user == null ) ? 

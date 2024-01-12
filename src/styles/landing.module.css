@@ -48,3 +48,19 @@ border-radius: 8px ;
     height: 40%;
     object-fit: contain;
 }
+
+.badge{
+    background-color: rgba(255, 192, 203, 0.527) ;
+    color: rgb(216, 30, 123);
+    padding: 4px 18px ;
+    border-radius : 12px ;
+    width: fit-content;
+    font-size: small;
+}
+
+.category_wrapper{
+    display: flex;
+    margin: 80px auto ;
+    justify-content: center;
+    gap: 20px;
+}

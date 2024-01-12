@@ -32,7 +32,6 @@ const Product = () => {
     async function getSuggestions(category){
         const res = await fetch(API + `/category/${category}`) // https://fakestore.com/products/ + /category/jewellery
         const json = await res.json() 
-        console.log("suggestions " , json)
         setSuggestions(json)
     }    
 
